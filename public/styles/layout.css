@@ -14,12 +14,43 @@ html {
  * Global layout stuff
  */
 
-body {
+ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0px 50px 50px 50px;
+  background-color: #f4f1ec;
+  width: 90%;
+}
+
+button {
+  padding: 5px 15px;
+  border: 0;
+  color: #FFFFFF;
+  background-color: #4056A1;
+  font-family: 'Bungee', cursive;
+}
+
+button:active {
+  color: #4056A1;
+  background-color: #FFFFFF;
+}
+
+#error-message-long, #error-message-empty {
+  border: red solid 3px;
+  color: red;
+  padding: 10px;
+  display: none;
+}
