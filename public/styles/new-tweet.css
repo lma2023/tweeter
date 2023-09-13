@@ -1,0 +1,29 @@
+.new-tweet {
+    font-size: 1em;
+  }
+  
+  .new-tweet div {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .counter {
+    font-family: 'Bungee', cursive;
+  }
+  
+  .max {
+    color: red;
+  }
+  
+  #tweet-text {
+    margin: 0 0 20px 0;
+    width: 100%;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom: 5px solid #777;
+    border-left-width: 0;
+    background-color: transparent;
+    font-weight: bold;
+  }
+
+
