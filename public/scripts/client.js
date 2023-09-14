@@ -3,7 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-$(document).ready(function () {
+
 
     const renderTweets = (data) => {
         // loops through tweets
@@ -50,21 +50,35 @@ $(document).ready(function () {
     };
     //   renderTweets(data);
 
-    const loadTweets = () => {
-        $.get("/tweets", function (data) {
-            renderTweets(data);
-        });
-    };
+    // -- AJAX GET request 
+    // const loadTweets = () => {
+    //     $.get("/tweets", function (data) {
+    //         renderTweets(data);
+    //     });
+    // };
 
+    function loadTweets() {
+        $.ajax("/tweets", {
+          method: "GET"})
+          .then(function(tweets) {
+            renderTweets(tweets);
+          });
+      }
+    //   New tweet submission
+    $(document).ready(function () {
     $("#post-tweet").on("submit", function (event) {
         event.preventDefault();
-        $.post("/tweets", $("#tweet-text").serialize());
-        console.log("Test")
-    });
+        console.log("New tweet")
 
+        $.ajax("/tweets", {
+            method: "POST",
+            data: $("#post-tweet").serialize(),
+            success: () => {
+                loadTweets()}
+        })
+      });
     loadTweets();
-
-});
+  });
 
 
 
