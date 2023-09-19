@@ -6,7 +6,10 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -14,7 +17,7 @@ html {
  * Global layout stuff
  */
 
- body {
+body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
@@ -25,7 +28,7 @@ html {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-main {
+.new-tweet-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,9 +51,30 @@ button:active {
   background-color: #FFFFFF;
 }
 
-#error-message-long, #error-message-empty {
-  border: red solid 3px;
-  color: red;
-  padding: 10px;
-  display: none;
+.tweet-container {
+  max-width: 80vw;
+}
+
+/*
+ * Responsive Design CSS
+ */
+@media screen and (min-width: 1024px) {
+  main.container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 120px;
+    padding: 40px;
+    padding-top: 30px;
+
+  }
+
+  header.avatar-header {
+    width: 650px;
+    height: 520px;
+  }
+
+  .new-tweet h2 {
+    margin-top: 0;
+  }
+
 }
