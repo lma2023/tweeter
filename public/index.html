@@ -1,74 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
 
-    <!-- External CSS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@1,300;1,600&display=swap" rel="stylesheet">
-    
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+<head>
+  <!-- Meta Information -->
+  <title>Tweeter - Home Page</title>
 
-    <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
-    
-    <!-- App JS -->
-    <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-  </head>
+  <!-- External CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@1,300;1,600&display=swap"
+    rel="stylesheet">
 
-  <body>
-    <!-- Top nav bar (fixed) -->
-    <nav>
-      <div class="logo">
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    type="text/css" />
+
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
+
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/client.js"></script>
+
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+</head>
+
+<body>
+  <!-- Top nav bar (fixed) -->
+  <nav>
+    <div class="logo">
       <span>tweeter</span>
-      </div>
-      <div class="writeNewTweet">
-        <p class="writeHere"><b>Write</b> a new tweet</p>
-        <i class="fas fa-angle-double-down"></i>
-      </div>
-    </nav>
+    </div>
+    <div class="writeNewTweet">
+      <p class="writeHere"><b>Write</b> a new tweet</p>
+      <i class="fas fa-angle-double-down"></i>
+    </div>
+  </nav>
 
+  <!-- Page-specific (main) content here -->
+  <main class="container">
     <header class="avatar-header">
       <div>
-          <img src="/images/profile-hex.png"> 
+        <img src="/images/profile-hex.png">
       </div>
       <br>
       <div>
-          <h2>Marina</h2>
+        <h2>ML</h2>
       </div>
-  </header>
-
-    <!-- Page-specific (main) content here -->
-    <main class="container"></main>
-
-    <section class="new-tweet">
-      <h2>Compose Tweet</h2>
-      <form method="POST" action="/tweets" id="post-tweet">
-        <p id="error-message-long"><i class="fa-solid fa-triangle-exclamation"></i>  Too long. Plz rspct our arbitrary limit of 140 chars. #kthxbye <i class="fa-solid fa-triangle-exclamation"></i></p>
-        <p id="error-message-empty"><i class="fa-solid fa-triangle-exclamation"></i>  Can't submit empty tweet. Plz write something. #kthxbye <i class="fa-solid fa-triangle-exclamation"></i></p>
-        <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
-        <div>
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
+    </header>
+    <div class="new-tweet-container">
+      <section class="new-tweet">
+        <!-- Div to show error message -->
+        <div class="error">
+          <span id="err-msg"></span>
         </div>
-      </form>
-    </section>
-    <!-- New tweet articles -->
-    <section class="tweet-container">
-    </section>
+        <h2></h2>
+        <form method="POST" action="/tweets" id="post-tweet">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <!-- New tweet articles -->
+      <section id="tweet-container"></section>
+    </div>
   </main>
-</div>
-  </body>
+  </div>
+</body>
+
 </html>
