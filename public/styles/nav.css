@@ -10,7 +10,9 @@ nav {
   align-items: center;
   font-family: 'Bungee', cursive;
   position: fixed;
+  top: 0;
 }
+
 nav.div {
   display: flex;
   flex-direction: column;
@@ -25,6 +27,7 @@ nav.div {
 .writeNewTweet {
   margin-left: auto;
   padding-right: 1em;
+  font-family: sans-serif;
 }
 
 .writeHere{
@@ -33,6 +36,12 @@ nav.div {
 
 .fa-angle-double-down {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  padding-left: 45%;
   color: red;
+  animation-name: upDown;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
+
