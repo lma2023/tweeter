@@ -48,7 +48,9 @@ function loadTweets() {
     })
         .then(function (tweets) {
             renderTweets(tweets);
-        });
+        }).catch (function (errorMessage) {
+            console.log("Error", errorMessage);
+        })
 }
 //   New tweet submission
 $(document).ready(function () {
@@ -79,12 +81,14 @@ $(document).ready(function () {
         data: $("#post-tweet").serialize(),
         success: () => {
             loadTweets(), $(".counter").val("140")
+        },
+        error: (errorMessage) => {
+            console.log("Error", errorMessage);
         }
     });
 });
 loadTweets();
 });
-
 
 
 
