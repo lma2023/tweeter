@@ -20,7 +20,6 @@ const renderTweets = (data) => {
     }
 };
 const createTweetElement = (data) => {
-    // const {user, content, created_at} = data;
     const tweetHTML = $(`
         <article class="tweet">
         <div class="header">
@@ -48,7 +47,7 @@ function loadTweets() {
     })
         .then(function (tweets) {
             renderTweets(tweets);
-        }).catch (function (errorMessage) {
+        }).catch(function (errorMessage) {
             console.log("Error", errorMessage);
         })
 }
@@ -56,10 +55,6 @@ function loadTweets() {
 $(document).ready(function () {
     $("#post-tweet").submit(function (event) {
         event.preventDefault();
-        // console.log("New tweet")
-        $("#error-message").slideUp();
-
-        const value = $(this).find("#tweet-text").val();
 
         // -- Displaying validation errors with jQuery
         if ($("#tweet-text").val().trim().length === 0) {
@@ -74,20 +69,20 @@ $(document).ready(function () {
         }
 
         $(".error").hide();
-    
-            $.ajax({
-        url: "/tweets",
-        method: "POST",
-        data: $("#post-tweet").serialize(),
-        success: () => {
-            loadTweets(), $(".counter").val("140")
-        },
-        error: (errorMessage) => {
-            console.log("Error", errorMessage);
-        }
+
+        $.ajax({
+            url: "/tweets",
+            method: "POST",
+            data: $("#post-tweet").serialize(),
+            success: () => {
+                loadTweets(), $(".counter").val("140")
+            },
+            error: (errorMessage) => {
+                console.log("Error", errorMessage);
+            }
+        });
     });
-});
-loadTweets();
+    loadTweets();
 });
 
 
